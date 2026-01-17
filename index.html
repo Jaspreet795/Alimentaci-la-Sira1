@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Alimentació la Sira</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============ RESET ============ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============ BODY ============ */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f7f6;
+    color: #1f2933;
+    overflow-x: hidden;
+}
+
+/* ============ HEADER ============ */
+header {
+    background: linear-gradient(135deg, #0f5132, #198754);
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+    border-radius: 0 0 30px 30px;
+    opacity: 0;
+    transform: translateY(-40px);
+    animation: slideDown 1.2s forwards;
+}
+
+@keyframes slideDown {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ LOGO ============ */
+.logo {
+    width: 140px;
+    max-width: 80%;
+    margin-bottom: 20px;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+header h1 {
+    font-size: 3.1em;
+    margin-bottom: 12px;
+}
+
+header p {
+    font-size: 1.15em;
+}
+
+/* ============ NAV ============ */
+nav {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 16px;
+    margin-top: -28px;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    text-decoration: none;
+    color: #1f2933;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #e6f4ea;
+    color: #0f5132;
+    transform: translateY(-2px);
+}
+
+/* ============ MAIN ============ */
+main {
+    padding: 60px 20px;
+}
+
+/* ============ SECTIONS ============ */
+section {
+    margin-bottom: 90px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section h2 {
+    font-size: 2.2em;
+    color: #0f5132;
+    margin-bottom: 35px;
+}
+
+section h2::after {
+    content: "";
+    width: 70px;
+    height: 4px;
+    background-color: #fd7e14;
+    display: block;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+/* ============ GRID ============ */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 35px;
+}
+
+/* ============ CARD ============ */
+.card {
+    background-color: #ffffff;
+    border-radius: 26px;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.18);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card p {
+    padding: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #374151;
+}
+
+/* ============ ABOUT & CONTACT ============ */
+.about, .contact {
+    background-color: #ffffff;
+    padding: 50px 30px;
+    border-radius: 28px;
+    text-align: center;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.1);
+}
+
+.about p, .contact p {
+    font-size: 1.1em;
+    line-height: 1.7;
+}
+
+/* ============ MAP ============ */
+.map-container {
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+/* ============ FOOTER ============ */
+footer {
+    background-color: #0f5132;
+    color: white;
+    text-align: center;
+    padding: 35px 10px;
+    border-radius: 30px 30px 0 0;
+}
+
+.button {
+    display: inline-block;
+    background-color: #198754; /* verde */
+    color: white;
+    padding: 12px 25px;
+    margin: 8px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0f5132;
+    transform: translateY(-2px);
+}
+
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+    header h1 { font-size: 2.4em; }
+}
+
+@media (max-width: 480px) {
+    header h1 { font-size: 2em; }
+    header p { font-size: 1em; }
+    .logo { width: 110px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="sira-removebg-preview.png" alt="Alimentació la Sira Logo" class="logo">
+    <h1>Alimentació la Sira</h1>
+    <p>Can Jimmy · Todo lo que necesitas en tu tienda de confianza</p>
+</header>
+
+<nav>
+    <a href="#about">Sobre Nosotros</a>
+    <a href="#bebidas">Bebidas</a>
+    <a href="#snacks">Snacks</a>
+    <a href="#despensa">Despensa</a>
+    <a href="#frutas">Frutas</a>
+    <a href="#hogar">Hogar</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<main>
+
+<section id="about" class="about">
+    <h2>Sobre Nosotros</h2>
+    <p>
+        <p>
+    Hola, mi nombre es Jimmy, tengo 34 años, y esta es mi tienda en Cassà de la Selva.  
+    Aquí encontrarás productos básicos del día a día con atención cercana y personalizada.  
+    Nos enorgullece ofrecer un ambiente acogedor donde cada cliente se siente como en casa.  
+    ¡Ven y descubre todo lo que tenemos para ti!
+</p>
+
+    </p>
+</section>
+
+<section id="bebidas">
+    <h2>🥤 Bebidas</h2>
+    <div class="grid">
+        <div class="card"><img src="energeticas.jpg"><p>Bebidas energéticas</p></div>
+        <div class="card"><img src="referescos.jpg"><p>Refrescos</p></div>
+        <div class="card"><img src="agua.jpg"><p>Agua</p></div>
+        <div class="card"><img src="leche.jpg"><p>Leche</p></div>
+    </div>
+</section>
+
+<section id="snacks">
+    <h2>🍪 Snacks y Dulces</h2>
+    <div class="grid">
+        <div class="card"><img src="chipsjpeg.jpeg"><p>Snacks</p></div>
+        <div class="card"><img src="Chucherías.png"><p>Chucherías</p></div>
+        <div class="card"><img src="helados.png"><p>Helados</p></div>
+    </div>
+</section>
+
+<section id="despensa">
+    <h2>🍝 Despensa</h2>
+    <div class="grid">
+        <div class="card"><img src="pan.jpg"><p>Pasta y arroz</p></div>
+        <div class="card"><img src="oils.png"><p>Aceites y conservas</p></div>
+    </div>
+</section>
+
+<section id="frutas">
+    <h2>🍌 Frutas y Verduras</h2>
+    <div class="grid">
+        <div class="card"><img src="lemon.png"><p>Frutas frescas</p></div>
+        <div class="card"><img src="onion.png"><p>Verduras frescas</p></div>
+    </div>
+</section>
+
+<section id="hogar">
+    <h2>🧽 Hogar</h2>
+    <div class="grid">
+        <div class="card"><img src="limpieza.png"><p>Limpieza</p></div>
+        <div class="card"><img src="toilet.png"><p>Esenciales de Baño</p></div>
+    </div>
+</section>
+
+<section id="contacto" class="contact">
+    <h2>Contacto</h2>
+    <p>📍 Travessera de les Mesures, 1, 17244 Cassà de la Selva, Girona</p>
+  <!-- Botón WhatsApp -->
+    <a class="button" href="https://wa.me/34632871822" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+
+    <!-- Botón Instagram -->
+    <a class="button" href="https://www.instagram.com/jimmy_diawara?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">Instagram</a>
+
+    <p>🕒 Horario:</p>
+    <ul style="list-style: none; padding: 0; font-weight: 600;">
+        <li>Sábado: 9 am–2 pm · 5–10 pm</li>
+        <li>Domingo: 9 am–2 pm · 5–10 pm</li>
+        <li>Lunes: 9 am–2 pm · 5–10 pm</li>
+        <li>Martes: 9 am–2 pm · 5–10 pm</li>
+        <li>Miércoles: 9 am–2 pm · 5–10 pm</li>
+        <li>Jueves: 9 am–2 pm · 5–10 pm</li>
+        <li>Viernes: 9 am–2 pm · 5–10 pm</li>
+    </ul>
+    <div class="map-container">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2963.077953297487!2d2.927387276170693!3d41.98547047931495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b0f654d29e0f1b%3A0x4b2f0f16f8c3f5e!2sTravessera%20de%20les%20Mesures%201%2C%2017244%20Cass%C3%A0%20de%20la%20Selva%2C%20Girona!5e0!3m2!1sen!2ses!4v1705515972345!5m2!1sen!2ses"
+            width="100%" height="100%" style="border:0;" loading="lazy">
+        </iframe>
+    </div>
+</section>
+
+</main>
+<footer>
+    © Alimentació la Sira · Can Jimmy
+</footer>
+
+<script>
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
